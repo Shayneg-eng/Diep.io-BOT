@@ -1,0 +1,95 @@
+from pyautogui import *
+import pyautogui
+import time
+import keyboard
+import random
+import win32api, win32con
+#import threading
+
+
+def findAndShootShapes():
+
+    pinkTriangle = pyautogui.locateCenterOnScreen('Diep.io Pink Triangle no background.png', confidence = 0.6)
+    pentagon = pyautogui.locateCenterOnScreen('Diep.io Pentagon no background.png', confidence = 0.6)
+    triangle = pyautogui.locateCenterOnScreen('Diep.io Triangle no background.png', confidence = 0.6)
+    square = pyautogui.locateCenterOnScreen('Diep.io picture.png', confidence = 0.6)
+
+    if pinkTriangle != None:
+        x = triangle[0]
+        y = triangle[1]
+        win32api.SetCursorPos((x,y))
+        print('triangle incoming!')
+
+    elif pentagon != None:
+        x = pentagon[0]
+        y = pentagon[1]
+        win32api.SetCursorPos((x,y))
+        print('pentagon found')
+        for i in range(5):
+            pentagon = pyautogui.locateCenterOnScreen('Diep.io Pentagon no background.png', confidence = 0.6)
+            if pentagon != None:
+                x = pentagon[0]
+                y = pentagon[1]
+                win32api.SetCursorPos((x,y))
+            else:
+                break
+        
+    elif triangle != None:
+        x = triangle[0]
+        y = triangle[1]
+        win32api.SetCursorPos((x,y))
+        print('triangle found')
+        for i in range(5):
+            triangle = pyautogui.locateCenterOnScreen('Diep.io Triangle no background.png', confidence = 0.6)
+            if triangle != None:
+                x = triangle[0]
+                y = triangle[1]
+                win32api.SetCursorPos((x,y))
+            else:
+                break
+
+    elif square != None:
+        x = square[0]
+        y = square[1]
+        win32api.SetCursorPos((x,y))
+        print('square found')
+        for i in range(5):
+ 
+            square = pyautogui.locateCenterOnScreen('Diep.io picture.png', confidence = 0.6)
+            if square != None:
+                x = square[0]
+                y = square[1]
+                win32api.SetCursorPos((x,y))
+            else:
+                break
+
+
+    else:
+         print('no shapes found')
+
+
+"""
+def findEnemyAndBullet():
+    Bullet = pyautogui.locateOnScreen('blue player.png', 'red player.png')
+    if Bullet != None:
+        Bullet = pyautogui.locateOnScreen('blue player with gray circle.png', confidence = 0.)
+        
+        
+        
+        if enemy 
+        
+    else:
+        print('no enemies')
+
+
+def enemyLocation():
+    while 1:
+        findEnemy()
+        if keyboard.is_pressed('p') == True:
+            break
+"""
+while 1:
+    findAndShootShapes()
+#    findEnemy()
+    if keyboard.is_pressed('p') == True:
+            break
